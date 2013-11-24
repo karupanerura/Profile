@@ -8,6 +8,7 @@ body {
   background-image: url("/img/mable-black-p.jpg");
   color: #F8F8F8;
   text-shadow: 1px -1px 0 rgba(0, 0, 0, 1);
+  -webkit-text-size-adjust: 100%;
 }
 
 body, input {
