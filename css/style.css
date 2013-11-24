@@ -1,0 +1,123 @@
+/* reset */
+header, nav, section, article, footer {
+  display: block;
+}
+
+/* base */
+body {
+  background-image: url("/img/mable-black-p.jpg");
+  color: #F8F8F8;
+  text-shadow: 1px -1px 0 rgba(0, 0, 0, 1);
+}
+
+body, input {
+  font: 20px Helvetica, Arial, 'Hiragino Kaku Gothic ProN', 'ヒラギノ角ゴ ProN W3', 'モリサワ新ゴR', 'Droid Sans', メイリオ, 'sans-serif';
+}
+
+#container {
+  width:     80%;
+  max-width: 960px;
+  min-width: 240px;
+  margin:    20px auto;
+}
+
+footer {
+  text-align: center;
+}
+
+@media screen and (min-width:480px) {
+  section.profile > .detail {
+    display: -webkit-box;
+    display: -moz-box;
+    display: box;
+    width:   100%;
+  }
+}
+
+.profile > .detail > article {
+  margin:    10px;
+  padding:   20px;
+  min-width: 240px;
+  -moz-box-flex:    10;
+  -webkit-box-flex: 10;
+
+  background-color: rgba(248, 248, 248, 0.1);
+  border:     1px solid #555;
+  box-shadow: rgba(  0,   0,   0, .1) 0    1px 0 inset;
+  box-shadow: rgba(255, 255, 255, .1) 0    1px 0;
+  box-shadow: rgba(  0,   0,   0, .1) -1px 0   0;
+  box-shadow: rgba(255, 255, 255, .1) -1px 0   0 inset;
+}
+
+.profile > .detail > article > ul > li {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+article.spec {
+  overflow: hidden;
+}
+
+article.spec > img.icon {
+  display: inline;
+  float: left;
+  margin: 0 15px 0 0;
+  padding: 0;
+
+  border:     1px solid #555;
+  box-shadow: rgba(  0,   0,   0, .1) 0    1px 0 inset;
+  box-shadow: rgba(255, 255, 255, .1) 0    1px 0;
+  box-shadow: rgba(  0,   0,   0, .1) -1px 0   0;
+  box-shadow: rgba(255, 255, 255, .1) -1px 0   0 inset;
+}
+
+article.spec > dl {
+  overflow: hidden;
+  padding:  0 5px;
+  font-size: 0.8em;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+article.spec > dl > dt {
+  clear:  left;
+  float:  left;
+  width:  5em;
+  margin-top: 0.5em;
+}
+article.spec > dl > dt:after {
+  content: ":";
+}
+
+article.spec > dl > dd {
+  margin-left:  5em;
+  margin-top: 0.5em;
+}
+
+article.spec > dl > dt,
+article.spec > dl > dd {
+  border-bottom: 1px dashed #EEE;
+}
+
+#profile > .detail > article.link {
+  -moz-box-flex:    2;
+  -webkit-box-flex: 2;
+}
+
+article.link > ul > li {
+  margin: 5px 0;
+}
+
+article > h2 > a,
+article li a,
+article li a {
+  color:           #F8F8F8;
+  text-decoration: none;
+  border-bottom:   1px solid #EEE;
+}
+
+ul.cpan-modules > li .desc,
+ul.github-repos > li .desc {
+  font-size: 0.8em;
+}

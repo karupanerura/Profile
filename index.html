@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+    <title>karupanerura</title>
+    <!--[if IE]>
+    <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js">
+    </script>
+    <![endif]-->
+    <link rel="stylesheet" href="/css/normalize.css" />
+    <link rel="stylesheet" href="/css/style.css" />
+    <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.2/angular.min.js"></script>
+    <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.2/angular-resource.min.js"></script>
+    <script src="/js/main.js"></script>
+  </head>
+  <body>
+    <main id="container" data-ng-app="Profile">
+      <h1>karupanerura</h1>
+
+      <section id="profile" class="profile">
+        <h1>Profile</h1>
+
+        <div class="detail">
+          <article class="spec" data-ng-controller="Spec">
+            <img class="icon" src="/img/karupanerura.png" width="250" height="250" />
+            <dl>
+              <dt>id</dt><dd>karupanerura</dd>
+              <dt>country</dt><dd>japan</dd>
+              <dt>sex</dt><dd>male</dd>
+              <dt>age</dt><dd>{{ age }}</dd>
+              <dt>job</dt><dd>web engineer</dd>
+              <dt>hobby</dt><dd>music, programming</dd>
+            </dl>
+          </article>
+
+          <article class="link">
+            <h2>Link</h2>
+            <ul>
+              <li><a href="http://karupanerura.hateblo.jp/">Weblog</a></li>
+              <li><a href="https://twitter.com/karupanerura">Twitter</a></li>
+              <li><a href="https://github.com/karupanerura">Github</a></li>
+              <li><a href="http://search.cpan.org/~karupa/">CPAN</a></li>
+              <li><a href="http://www.lastfm.jp/user/karupanerura">Last.fm</a></li>
+              <li><a href="http://soundcloud.com/karupanerura">Sound Cloud</a></li>
+            </ul>
+          </article>
+      </section>
+
+      <section id="like" class="profile">
+        <h1>Like</h1>
+
+        <div class="detail">
+          <article class="field">
+            <h2>Field</h2>
+            <ul>
+              <li>
+                <h3>enginner</h3>
+                <ul>
+                  <li>web application</li>
+                  <li>android application</li>
+                  <li>security</li>
+                  <li>architect</li>
+                  <li>database</li>
+                </ul>
+              </li>
+              <li>
+                <h3>bandsman</h3>
+                <ul>
+                  <li>vocalist</li>
+                  <li>guiter player</li>
+                  <li>bass player</li>
+                  <li>composer</li>
+                  <li>lyricist</li>
+                </ul>
+              </li>
+            </ul>
+          </article>
+
+          <article class="programming">
+            <h2>Programming</h2>
+            <ul>
+              <li>
+                <h3>Perl</h3>
+                <ul>
+                  <li>Amon2</li>
+                  <li>Teng</li>
+                  <li>DBIx::Sunny</li>
+                  <li>Class::Accessor::Lite</li>
+                  <li>etc..</li>
+                </ul>
+              </li>
+              <li>
+                <h3>Javascript</h3>
+                <ul>
+                  <li>jQuery</li>
+                  <li>underscore</li>
+                  <li>node.js</li>
+                  <li>Backnone</li>
+                  <li>Anguler.js</li>
+                  <li>etc..</li>
+                </ul>
+              </li>
+              <li>
+                <h3>Java</h3>
+                <ul>
+                  <li>(Android) Volley</li>
+                  <li>javax.crypto.*</li>
+                  <li>(Android) SDK</li>
+                  <li>(Android) NDK(JNI)</li>
+                  <li>etc..</li>
+                </ul>
+              </li>
+            </ul>
+          </article>
+
+          <article class="music">
+            <h2>Music</h2>
+            <ul>
+              <li>Rock & Pop</li>
+              <li>Pop & Roll</li>
+              <li>Blues</li>
+            </ul>
+          </article>
+        </div>
+      </section>
+
+      <section id="opensource" class="profile">
+        <h1>Open Source</h1>
+
+        <div class="detail">
+          <article data-ng-controller="Github">
+            <h2><a href="https://github.com/{{ username }}">github</a></h2>
+            <ul class="github-repos">
+              <li data-ng-repeat="repo in repos">
+                <h3><a href="{{ repo.html_url }}">{{ repo.name }}</a></h3>
+                <span class="desc">{{ repo.description }}</span>
+              </li>
+            </ul>
+          </article>
+
+          <article data-ng-controller="CPAN">
+            <h2><a href="https://metacpan.org/author/{{ author }}">CPAN</a></h2>
+            <ul class="cpan-modules">
+              <li data-ng-repeat="module in cpan.release.hits.hits | orderBy:recentModule:true">
+                <h3><a href="https://metacpan.org/release/{{ module._source.distribution }}">{{ module._source.distribution }} {{ module._source.version }}</a></h3>
+                <span class="desc">{{ module._source.abstract }}</span>
+              </li>
+            </ul>
+          </article>
+        </div>
+      </section>
+    </main>
+    <footer>
+      <small class="copyright">&copy; karupanerura</small>
+    </footer>
+  </body>
+</html>
