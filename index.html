@@ -47,12 +47,12 @@
           </article>
       </section>
 
-      <section id="like" class="profile">
-        <h1>Like</h1>
+      <section id="skill" class="profile">
+        <h1>Skill</h1>
 
         <div class="detail">
-          <article class="field">
-            <h2>Field</h2>
+          <article class="role">
+            <h2>Role</h2>
             <ul>
               <li>
                 <h3>enginner</h3>
@@ -77,6 +77,35 @@
             </ul>
           </article>
 
+          <article class="activity" data-ng-controller="Activity">
+            <h2>Activity</h2>
+
+            <ul>
+              <li>
+                <h3><a href="{{ slideshare.responseData.feed.link }}">SlideShare</a></h3>
+                <ul class="slideshare">
+                  <li data-ng-repeat="slide in slideshare.responseData.feed.entries">
+                    <a href="{{ slide.link }}">{{ slide.title }}</a>
+                  </li>
+                </ul>
+              </li>
+              <li>
+                <h3><a href="{{ weblog.responseData.feed.link }}">Blog</a></h3>
+                <ul class="blog">
+                  <li data-ng-repeat="article in weblog.responseData.feed.entries">
+                    <a href="{{ article.link }}">{{ article.title }}</a>
+                  </li>
+                </ul>
+              </li>
+            </ul>
+          </article>
+        </div>
+      </section>
+
+      <section id="like" class="profile">
+        <h1>Like</h1>
+
+        <div class="detail">
           <article class="programming">
             <h2>Programming</h2>
             <ul>
@@ -114,12 +143,33 @@
             </ul>
           </article>
 
-          <article class="music">
+          <article class="music" data-ng-controller="Music">
             <h2>Music</h2>
             <ul>
-              <li>Rock & Pop</li>
-              <li>Pop & Roll</li>
-              <li>Blues</li>
+              <li>
+                <h3>Genre</h3>
+                <ul>
+                  <li>Rock & Pop</li>
+                  <li>Pop & Roll</li>
+                  <li>Blues</li>
+                </ul>
+              </li>
+              <li>
+                <h3><a href="{{ lastfmRecent.responseData.feed.link }}">Last.fm</a>(recent)</h3>
+                <ul class="last-fm-recent">
+                  <li data-ng-repeat="track in lastfmRecent.responseData.feed.entries">
+                    <a href="{{ track.link }}">{{ track.title }}</a>
+                  </li>
+                </ul>
+              </li>
+              <li>
+                <h3>Last.fm (best/3month)</h3>
+                <ol class="last-fm-best">
+                  <li data-ng-repeat="artist in lastfmBest">
+                    <a href="{{ artist.url }}">{{ artist.title }} ({{ artist.playcount }})</a>
+                  </li>
+                </ol>
+              </li>
             </ul>
           </article>
         </div>
