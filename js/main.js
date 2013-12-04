@@ -17,9 +17,9 @@ function calcAge(year, month, day) {
   return (
     now.getFullYear() - birthday.getFullYear()
       + (
-        (now.getMonth() >= birthday.getMonth()) ?
-        (now.getDate()  >= birthday.getDate())  ?
-          0: -1: -1
+        (now.getMonth() >  birthday.getMonth())                                        ? 0 :
+        (now.getMonth() == birthday.getMonth() && now.getDate() >= birthday.getDate()) ? 0 :
+          -1
       )
   );
 }
