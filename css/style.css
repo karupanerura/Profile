@@ -14,6 +14,11 @@ body {
 body, input {
   font: 20px Helvetica, Arial, 'Hiragino Kaku Gothic ProN', 'ヒラギノ角ゴ ProN W3', 'モリサワ新ゴR', 'Droid Sans', メイリオ, 'sans-serif';
 }
+@media screen and (min-width:560px) {
+  body, input {
+    font-size: 16px;
+  }
+}
 
 a {
   color:           #EEE;
@@ -69,7 +74,9 @@ footer {
 }
 @media screen and (max-width:559px) {
   .profile > .detail > article {
-    width: inherit;
+    width:   inherit;
+    margin:  10px 0;
+    padding: 10px;
   }
 }
 
@@ -84,7 +91,7 @@ footer {
 }
 
 article.role {
-  min-width: 300px;
+  min-width: 200px;
 }
 
 article.spec {
