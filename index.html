@@ -55,7 +55,7 @@
             <h2>Role</h2>
             <ul>
               <li>
-                <h3>enginner</h3>
+                <h3>software enginner</h3>
                 <ul>
                   <li>web application</li>
                   <li>android application</li>
@@ -65,13 +65,20 @@
                 </ul>
               </li>
               <li>
-                <h3>bandsman</h3>
+                <h3>musician</h3>
                 <ul>
                   <li>vocalist</li>
                   <li>guiter player</li>
                   <li>bass player</li>
                   <li>composer</li>
                   <li>lyricist</li>
+                </ul>
+              </li>
+              <li>
+                <h3>sound engineer</h3>
+                <ul>
+                  <li>recording</li>
+                  <li>audio mixing</li>
                 </ul>
               </li>
             </ul>
@@ -165,8 +172,8 @@
               <li>
                 <h3>Last.fm (best/3month)</h3>
                 <ol class="last-fm-best">
-                  <li data-ng-repeat="artist in lastfmBest">
-                    <a href="{{ artist.url }}">{{ artist.title }} ({{ artist.playcount }})</a>
+                  <li data-ng-repeat="artist in lastfmBest | limitTo:10">
+                    <a href="{{ artist.url }}">{{ artist.name }} ({{ artist.playcount }})</a>
                   </li>
                 </ol>
               </li>
@@ -182,7 +189,7 @@
           <article data-ng-controller="Github">
             <h2><a href="https://github.com/{{ username }}">github</a></h2>
             <ul class="github-repos">
-              <li data-ng-repeat="repo in repos">
+              <li data-ng-repeat="repo in repos | limitTo:10">
                 <h3><a href="{{ repo.html_url }}">{{ repo.name }}</a></h3>
                 <span class="desc">{{ repo.description }}</span>
               </li>
@@ -192,7 +199,7 @@
           <article data-ng-controller="CPAN">
             <h2><a href="https://metacpan.org/author/{{ author }}">CPAN</a></h2>
             <ul class="cpan-modules">
-              <li data-ng-repeat="module in cpan.release.hits.hits | orderBy:recentModule:true">
+              <li data-ng-repeat="module in cpan.release.hits.hits | orderBy:recentModule:true | limitTo:10">
                 <h3><a href="https://metacpan.org/release/{{ module._source.distribution }}">{{ module._source.distribution }} {{ module._source.version }}</a></h3>
                 <span class="desc">{{ module._source.abstract }}</span>
               </li>

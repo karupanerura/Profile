@@ -67,6 +67,11 @@ footer {
   box-shadow: rgba(  0,   0,   0, .2) -1px 0   0;
   box-shadow: rgba(255, 255, 255, .2) -1px 0   0 inset;
 }
+@media screen and (max-width:559px) {
+  .profile > .detail > article {
+    width: inherit;
+  }
+}
 
 .detail > article {
   min-width: 100px;
