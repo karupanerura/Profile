@@ -14,7 +14,7 @@ body {
 body, input {
   font: 20px Helvetica, Arial, 'Hiragino Kaku Gothic ProN', 'ヒラギノ角ゴ ProN W3', 'モリサワ新ゴR', 'Droid Sans', メイリオ, 'sans-serif';
 }
-@media screen and (min-width:560px) {
+@media screen and (max-width:561px) {
   body, input {
     font-size: 16px;
   }
