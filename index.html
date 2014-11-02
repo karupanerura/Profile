@@ -170,7 +170,7 @@
                 </ul>
               </li>
               <li>
-                <h3>Last.fm (best/3month)</h3>
+                <h3><a href="{{ lastfmRecent.responseData.feed.link }}">Last.fm</a>(best/3month)</h3>
                 <ol class="last-fm-best">
                   <li data-ng-repeat="artist in lastfmBest | limitTo:10">
                     <a href="{{ artist.url }}">{{ artist.name }} ({{ artist.playcount }})</a>
