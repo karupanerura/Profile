@@ -91,17 +91,16 @@ Profile.factory('LastFmBestApi', ['$resource', 'Setting', function ($resource, S
       isArray: true,
       transformResponse: function (data, headersGetter) {
         var parser  = new DOMParser();
-        var xml     = parser.parseFromString(data, "text/xml");
+        var xml     = parser.parseFromString(data, "application/xml");
         var atrists = xml.getElementsByTagName("artist");
 
         var formatedData = [];
         for (var i = 0, l = atrists.length; i < l; i++) {
-          var name      = (atrists[i].getElementsByTagName("name"))[0].innerHTML;
-          var playcount = (atrists[i].getElementsByTagName("playcount"))[0].innerHTML;
-          var url       = (atrists[i].getElementsByTagName("url"))[0].innerHTML;
+          var name      = (atrists[i].getElementsByTagName("name"))[0].textContent;
+          var playcount = (atrists[i].getElementsByTagName("playcount"))[0].textContent;
+          var url       = (atrists[i].getElementsByTagName("url"))[0].textContent;
           formatedData.push({ name: name, playcount: playcount, url: url });
         }
-
         return formatedData;
       }
     }
