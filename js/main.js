@@ -2,15 +2,13 @@
 var Profile = angular.module('Profile', ["ngResource"]);
 
 Profile.constant('Setting', {
-  CPAN_AUTHOR:       "KARUPA",
-  CPAN_AUTHOR_API:   "http://api.metacpan.org/v0/author/:author",
-  GITHUB_USERNAME:   "karupanerura",
-  GITHUB_REPOS_API:  "https://api.github.com/users/:username/repos",
-  GOOGLE_FEED_API:   "https://ajax.googleapis.com/ajax/services/feed/load?v=1.0",
-  SLIDESHARE_RSS:    "http://slideshare.rss.karupas.org/recent.rss",
-  WEBLOG_RSS:        "http://weblog.rss.karupas.org/recent.rss",
-  LASTFM_RECENT_RSS: "http://lastfm.rss.karupas.org/recent.rss",
-  LASTFM_BEST_XML:   "http://lastfm.rss.karupas.org/best.xml?period=3month"
+  CPAN_AUTHOR:      "KARUPA",
+  CPAN_AUTHOR_API:  "http://api.metacpan.org/v0/author/:author",
+  GITHUB_USERNAME:  "karupanerura",
+  GITHUB_REPOS_API: "https://api.github.com/users/:username/repos",
+  GOOGLE_FEED_API:  "https://ajax.googleapis.com/ajax/services/feed/load?v=1.0",
+  SLIDESHARE_RSS:   "http://www.slideshare.net/rss/user/karupanerura",
+  WEBLOG_RSS:       "http://techblog.karupas.org/rss"
 });
 
 Profile.controller('Spec', [
@@ -25,14 +23,6 @@ Profile.controller('Activity', [
   function ($scope, SlideShareApi, WeblogApi) {
     $scope.slideshare = SlideShareApi.get();
     $scope.weblog     = WeblogApi.get();
-  }
-]);
-
-Profile.controller('Music', [
-  '$scope', 'LastFmRecentApi', 'LastFmBestApi',
-  function ($scope, LastFmRecentApi, LastFmBestApi) {
-    $scope.lastfmRecent = LastFmRecentApi.get();
-    $scope.lastfmBest   = LastFmBestApi.query();
   }
 ]);
 
@@ -73,38 +63,11 @@ Profile.factory('calcAge', function () {
 });
 
 Profile.factory('SlideShareApi', ['$resource', 'Setting', function ($resource, Setting) {
-  return $resource(Setting.GOOGLE_FEED_API, { q: Setting.SLIDESHARE_RSS, callback: 'JSON_CALLBACK' }, { get: { method: 'JSONP' } });
+  return $resource(Setting.GOOGLE_FEED_API, { q: Setting.SLIDESHARE_RSS, callback: 'JSON_CALLBACK', num: 7 }, { get: { method: 'JSONP' } });
 }]);
 
 Profile.factory('WeblogApi', ['$resource', 'Setting', function ($resource, Setting) {
-  return $resource(Setting.GOOGLE_FEED_API, { q: Setting.WEBLOG_RSS, callback: 'JSON_CALLBACK' }, { get: { method: 'JSONP' } });
-}]);
-
-Profile.factory('LastFmRecentApi', ['$resource', 'Setting', function ($resource, Setting) {
-  return $resource(Setting.GOOGLE_FEED_API, { q: Setting.LASTFM_RECENT_RSS, callback: 'JSON_CALLBACK' }, { get: { method: 'JSONP' } });
-}]);
-
-Profile.factory('LastFmBestApi', ['$resource', 'Setting', function ($resource, Setting) {
-  return $resource(Setting.LASTFM_BEST_XML, {}, {
-    query: {
-      method: 'GET',
-      isArray: true,
-      transformResponse: function (data, headersGetter) {
-        var parser  = new DOMParser();
-        var xml     = parser.parseFromString(data, "application/xml");
-        var atrists = xml.getElementsByTagName("artist");
-
-        var formatedData = [];
-        for (var i = 0, l = atrists.length; i < l; i++) {
-          var name      = (atrists[i].getElementsByTagName("name"))[0].textContent;
-          var playcount = (atrists[i].getElementsByTagName("playcount"))[0].textContent;
-          var url       = (atrists[i].getElementsByTagName("url"))[0].textContent;
-          formatedData.push({ name: name, playcount: playcount, url: url });
-        }
-        return formatedData;
-      }
-    }
-  });
+  return $resource(Setting.GOOGLE_FEED_API, { q: Setting.WEBLOG_RSS, callback: 'JSON_CALLBACK', num: 7 }, { get: { method: 'JSONP' } });
 }]);
 
 Profile.factory('GithubReposApi', ['$resource', 'Setting', function ($resource, Setting) {

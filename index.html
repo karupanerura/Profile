@@ -10,8 +10,8 @@
     <![endif]-->
     <link rel="stylesheet" href="/css/normalize.css" />
     <link rel="stylesheet" href="/css/style.css" />
-    <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.2/angular.min.js"></script>
-    <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.2/angular-resource.min.js"></script>
+    <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.4.7/angular.min.js"></script>
+    <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.4.7/angular-resource.min.js"></script>
     <script src="/js/main.js"></script>
   </head>
   <body>
@@ -58,6 +58,7 @@
                 <h3>software enginner</h3>
                 <ul>
                   <li>web application</li>
+                  <li>ios application</li>
                   <li>android application</li>
                   <li>security</li>
                   <li>architect</li>
@@ -117,33 +118,31 @@
             <h2>Programming</h2>
             <ul>
               <li>
-                <h3>Perl</h3>
+                <h3>Languages</h3>
                 <ul>
-                  <li>Amon2</li>
-                  <li>Teng</li>
-                  <li>DBIx::Sunny</li>
-                  <li>Class::Accessor::Lite</li>
+                  <li>Perl</li>
+                  <li>Ruby</li>
+                  <li>Java Script</li>
+                  <li>XS</li>
+                  <li>C99</li>
+                  <li>Java</li>
+                  <li>Go</li>
+                  <li>Swift</li>
+                  <li>Crystal</li>
                   <li>etc..</li>
                 </ul>
               </li>
               <li>
-                <h3>Javascript</h3>
+                <h3>Genre</h3>
                 <ul>
-                  <li>jQuery</li>
-                  <li>underscore</li>
-                  <li>node.js</li>
-                  <li>Backnone</li>
-                  <li>Anguler.js</li>
-                  <li>etc..</li>
-                </ul>
-              </li>
-              <li>
-                <h3>Java</h3>
-                <ul>
-                  <li>(Android) Volley</li>
-                  <li>javax.crypto.*</li>
-                  <li>(Android) SDK</li>
-                  <li>(Android) NDK(JNI)</li>
+                  <li>Web</li>
+                  <li>Framework</li>
+                  <li>Parser</li>
+                  <li>Database</li>
+                  <li>Network</li>
+                  <li>Server</li>
+                  <li>Linux</li>
+                  <li>CLI Tools</li>
                   <li>etc..</li>
                 </ul>
               </li>
@@ -162,20 +161,29 @@
                 </ul>
               </li>
               <li>
-                <h3><a href="{{ lastfmRecent.responseData.feed.link }}">Last.fm</a>(recent)</h3>
-                <ul class="last-fm-recent">
-                  <li data-ng-repeat="track in lastfmRecent.responseData.feed.entries">
-                    <a href="{{ track.link }}">{{ track.title }}</a>
-                  </li>
+                <h3>Bands</h3>
+                <ul>
+                  <li>Buddy Guy</li>
+                  <li>Eric Clapton</li>
+                  <li>Mike Bloomfield</li>
+                  <li>T-Bone Walker</li>
+                  <li>Stevie Ray Vaughan</li>
+                  <li>Keith Jarrett</li>
+                  <li>RCサクセション</li>
+                  <li>ROSSO</li>
+                  <li>少年ナイフ</li>
+                  <li>ゆらゆら帝国</li>
+                  <li>東京カランコロン</li>
+                  <li>ZAZEN BOYS</li>
+                  <li>フーバーオーバー</li>
+                  <li>クリープハイプ</li>
+                  <li>吉澤嘉代子</li>
+                  <li>奮酉</li>
+                  <li>倉内太</li>
+                  <li>うみのて</li>
+                  <li>T字路s</li>
+                  <li>etc..</li>
                 </ul>
-              </li>
-              <li>
-                <h3><a href="{{ lastfmRecent.responseData.feed.link }}">Last.fm</a>(best/3month)</h3>
-                <ol class="last-fm-best">
-                  <li data-ng-repeat="artist in lastfmBest | limitTo:10">
-                    <a href="{{ artist.url }}">{{ artist.name }} ({{ artist.playcount }})</a>
-                  </li>
-                </ol>
               </li>
             </ul>
           </article>
