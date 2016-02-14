@@ -3,7 +3,7 @@ var Profile = angular.module('Profile', ["ngResource"]);
 
 Profile.constant('Setting', {
   CPAN_AUTHOR:      "KARUPA",
-  CPAN_AUTHOR_API:  "http://api.metacpan.org/v0/author/:author",
+  CPAN_AUTHOR_API:  "https://api.metacpan.org/v0/author/:author",
   GITHUB_USERNAME:  "karupanerura",
   GITHUB_REPOS_API: "https://api.github.com/users/:username/repos",
   GOOGLE_FEED_API:  "https://ajax.googleapis.com/ajax/services/feed/load?v=1.0",
