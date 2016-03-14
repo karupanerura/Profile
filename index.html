@@ -197,7 +197,7 @@
           <article data-ng-controller="Github">
             <h2><a href="https://github.com/{{ username }}">github</a></h2>
             <ul class="github-repos">
-              <li data-ng-repeat="repo in repos | limitTo:10">
+              <li data-ng-repeat="repo in repos | filter:{fork:false} | limitTo:10">
                 <h3><a href="{{ repo.html_url }}">{{ repo.name }}</a></h3>
                 <span class="desc">{{ repo.description }}</span>
               </li>

@@ -71,7 +71,7 @@ Profile.factory('WeblogApi', ['$resource', 'Setting', function ($resource, Setti
 }]);
 
 Profile.factory('GithubReposApi', ['$resource', 'Setting', function ($resource, Setting) {
-  return $resource(Setting.GITHUB_REPOS_API, { username: Setting.GITHUB_USERNAME, sort: "updated" });
+  return $resource(Setting.GITHUB_REPOS_API, { username: Setting.GITHUB_USERNAME, sort: "pushed", type: "all" });
 }]);
 
 Profile.factory('CpanAuthorApi', ['$resource', 'Setting', function ($resource, Setting) {
